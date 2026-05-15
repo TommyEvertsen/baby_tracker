@@ -1,0 +1,35 @@
+# Build outputs
+bin/
+obj/
+publish/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+
+# VS Code (optional - remove if you want to share workspace settings)
+.vscode/
+
+# JetBrains Rider
+.idea/
+
+# NuGet
+*.nupkg
+packages/
+
+# Secrets & local config
+secrets.json
+appsettings.Development.json
+
+# Publish profiles
+*.pubxml.user
+
+# Logs
+*.log
+logs/
+
+# OS files
+.DS_Store
+Thumbs.db

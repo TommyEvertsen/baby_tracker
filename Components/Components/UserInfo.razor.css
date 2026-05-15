@@ -1,0 +1,15 @@
+.userInfoWrapper {
+  border: 1px solid black;
+  border-radius: 15px;
+}
+
+.userInfoTop {
+  border-bottom: 1px solid black;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+}
+
+.userInfoBottom {
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+}

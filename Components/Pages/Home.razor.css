@@ -1,0 +1,6 @@
+.homeInfo {
+  display: flex;
+  justify-content: space-around;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
