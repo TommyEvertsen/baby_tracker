@@ -3,6 +3,9 @@ bin/
 obj/
 publish/
 
+# Secrets
+.env
+
 # Visual Studio
 .vs/
 *.user
@@ -33,3 +36,6 @@ logs/
 # OS files
 .DS_Store
 Thumbs.db
+
+# .env
+.env

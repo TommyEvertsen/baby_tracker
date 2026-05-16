@@ -1,0 +1,45 @@
+@using BabyTracker.Data
+@using BabyTracker.Models
+@using BabyTracker.Services
+@inject AppDbContext DbContext
+@inject UserService UserService
+
+<div class="createUserWrapper">
+    <div class="createUser">
+        <h3>Create User</h3>
+
+        @if (!string.IsNullOrEmpty(_message))
+        {
+            <p>@_message</p>
+        }
+
+        <input placeholder="Name" @bind="_name" />
+        <input placeholder="Password" type="password" @bind="_password" />
+        <button @onclick="HandleCreate">Create</button>
+    </div>
+</div>
+
+@code {
+    private string _name = string.Empty;
+    private string _password = string.Empty;
+    private string _message = string.Empty;
+
+    private async Task HandleCreate()
+    {
+        if (string.IsNullOrWhiteSpace(_name) || string.IsNullOrWhiteSpace(_password))
+        {
+            _message = "❌ Name and password are required.";
+            return;
+        }
+
+        var user = new User { Name = _name };
+        user.PasswordHash = UserService.HashPassword(user, _password);
+
+        DbContext.Users.Add(user);
+        await DbContext.SaveChangesAsync();
+
+        _message = $"✅ User '{user.Name}' created with ID {user.Id}!";
+        _name = string.Empty;
+        _password = string.Empty;
+    }
+}
