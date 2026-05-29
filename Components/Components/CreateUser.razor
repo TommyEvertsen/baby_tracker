@@ -6,20 +6,34 @@
 
 <div class="createUserWrapper">
     <div class="createUser">
-        <h3>Create User</h3>
+        <div class="createUserTop">
+             <button class="closeButton" @onclick="OnClose">x</button>
+          
+        </div>
+        <div class="createUserContent">
+              <h3>Create User</h3>
+            <input placeholder="Name" @bind="_name" />
+            <input placeholder="Password" type="password" @bind="_password" />
+            <div class="createUserButtonWrapper">
+                <button @onclick="HandleCreate" class="logInButton">Create</button>
+            </div>
+        </div>
+        
+       
 
         @if (!string.IsNullOrEmpty(_message))
         {
             <p>@_message</p>
         }
 
-        <input placeholder="Name" @bind="_name" />
-        <input placeholder="Password" type="password" @bind="_password" />
-        <button @onclick="HandleCreate">Create</button>
+        
+        
     </div>
 </div>
 
 @code {
+    [Parameter] public EventCallback OnClose { get; set; }
+
     private string _name = string.Empty;
     private string _password = string.Empty;
     private string _message = string.Empty;

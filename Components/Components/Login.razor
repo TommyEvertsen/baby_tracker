@@ -1,0 +1,73 @@
+
+
+@using BabyTracker.Components.Components
+
+<div class="userInfoWrapper">
+    <div class="userInfo">
+        <div class="userInfoTop">
+            <h4>Login or sign up</h4>
+        </div>
+        <div class="userInfoBottom">
+            <button class="logInButton" @onclick="OpenLogin">Log in</button>
+            <button class="signUpButton" @onclick="OpenCreateUser">Sign up <span class="bi bi-box-arrow-in-right"></span></button>
+        </div>
+    </div>
+</div>
+
+
+
+@if(_showLogin){
+    <div class="modalOverlay" @onclick="CloseLogin">
+        <div class="modalBox" @onclick:stopPropagation="true">
+
+<div class="loginPageWrapper">
+    <div class="loginPage">
+        <div class="loginPageTop">
+        <button class="closeButton" @onclick="CloseLogin">x</button>
+        </div>
+        <div class="loginPageContent">
+           <h3>Login</h3>
+           <input type="text" placeholder="Username">
+            <input type="text" placeholder="Password">
+            <div class="loginButtonWrapper">
+                <button class="logInButton">Login</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        </div>
+    </div>
+}
+
+@if(_showCreateUser){
+        <div class="modalOverlay" @onclick="CloseCreateUser">
+        <div class="modalBox" @onclick:stopPropagation="true" >
+
+            <CreateUser OnClose="CloseCreateUser" />
+
+        </div>
+    </div>
+}
+
+@code{
+    private bool _showLogin = false;
+    private bool _showCreateUser = false;
+
+    private void OpenLogin(){
+        _showLogin = true;
+    }
+
+    private void CloseLogin(){
+        _showLogin = false;
+    }
+
+    private void OpenCreateUser(){
+        _showCreateUser = true;
+    }
+
+    private void CloseCreateUser(){
+        _showCreateUser = false;
+    }
+}

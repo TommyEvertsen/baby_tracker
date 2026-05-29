@@ -1,0 +1,19 @@
+.createUserTop {
+  background-image: linear-gradient(90deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+  display: flex;
+  justify-content: end;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  padding: 0.5rem;
+}
+
+.createUserContent {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}
+
+.createUserButtonWrapper {
+  margin-top: 0.5rem;
+}

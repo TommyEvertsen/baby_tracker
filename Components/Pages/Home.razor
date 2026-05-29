@@ -10,27 +10,14 @@
         <div>
             <h1>Babytracker</h1>
         </div>
-        <UserInfo />
-        <CreateUser />
-        <p>@_dbStatus</p>
+            <Login />    
     </div>
 </div>
 
 @code {
-    private string _dbStatus = "Checking connection...";
 
-    protected override async Task OnInitializedAsync()
-    {
-        try
-        {
-            var canConnect = await DbContext.Database.CanConnectAsync();
-            _dbStatus = canConnect ? "✅ Connected to MariaDB!" : "❌ Could not connect to MariaDB.";
-        }
-        catch (Exception ex)
-        {
-            _dbStatus = $"❌ Failed: {ex.Message}";
-        }
-    }
+
+   
 }
 
 
